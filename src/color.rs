@@ -184,6 +184,20 @@ impl From<embedded_graphics_core::pixelcolor::Rgb888> for OctColor {
 }
 
 #[cfg(feature = "graphics")]
+impl From<embedded_graphics_core::pixelcolor::Rgb555> for OctColor {
+    fn from(p: embedded_graphics_core::pixelcolor::Rgb555) -> OctColor {
+        OctColor::from(embedded_graphics_core::pixelcolor::Rgb888::from(p))
+    }
+}
+
+#[cfg(feature = "graphics")]
+impl From<embedded_graphics_core::pixelcolor::Rgb565> for OctColor {
+    fn from(p: embedded_graphics_core::pixelcolor::Rgb565) -> OctColor {
+        OctColor::from(embedded_graphics_core::pixelcolor::Rgb888::from(p))
+    }
+}
+
+#[cfg(feature = "graphics")]
 impl From<embedded_graphics_core::pixelcolor::raw::RawU4> for OctColor {
     fn from(b: embedded_graphics_core::pixelcolor::raw::RawU4) -> Self {
         use embedded_graphics_core::prelude::RawData;
